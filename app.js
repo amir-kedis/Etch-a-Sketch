@@ -23,12 +23,21 @@ const randomColors = [
     '#e67e22',
     '#c0392b',
     '#d35400',
-    '#95a5a6'
+    '#95a5a6',
+    '#55efc4',
+    '#81ecec',
+    '#74b9ff',
+    '#a29bfe',
+    '#dfe6e9',
+    '#00b894',
+    '#00cec9',
+    '#2d3436',
+    '#e84393',
+    '#d63031'
 ];
 
 // return a random color from the array of colors
 function getRandomColor() {
-    console.log(Math.floor(Math.random() * randomColors.length));
     return randomColors[Math.floor(Math.random() * randomColors.length)];
 }
 
@@ -70,12 +79,19 @@ function makeGrid(size = 32) {
                 if (colorBtn.classList.contains("active")) {
                     item.style.backgroundColor = colorPicker.value;
                 } else {
-                    console.log(getRandomColor());
                     item.style.backgroundColor = getRandomColor();
                 }
 
             }
         });
+    }
+}
+
+// clear canvas 
+function clearCanvas() {
+    const gridItems = document.querySelectorAll(".grid_item");
+    for (item of gridItems) {
+        item.style.backgroundColor = "#fff";
     }
 }
 
@@ -97,5 +113,7 @@ rainbowBtn.addEventListener("click", () => {
     rainbowBtn.classList.add("active");
     colorBtn.classList.remove("active");
 });
+
+clearBtn.addEventListener("click", clearCanvas);
 
 makeGrid();

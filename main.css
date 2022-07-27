@@ -144,7 +144,7 @@ footer a {
 }
 
 .grid_item {
-    border: 1px solid gray;
+    /* border: 1px solid gray; */
 }
 
 @media screen and (max-width: 768px) {
