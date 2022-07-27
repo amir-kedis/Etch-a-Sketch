@@ -4,11 +4,38 @@ const canvas = document.querySelector("#canvas");
 const colorBtn = document.querySelector("#colorBtn");
 const rainbowBtn = document.querySelector("#rainbowBtn");
 const clearBtn = document.querySelector("#clearBtn");
+const colorPicker = document.querySelector("#colorPicker");
+
+const randomColors = [
+    '#1abc9c',
+    '#2ecc71',
+    '#3498db',
+    '#9b59b6',
+    '#34495e',
+    '#16a085',
+    '#27ae60',
+    '#2980b9',
+    '#8e44ad',
+    '#2c3e50',
+    '#f1c40f',
+    '#e67e22',
+    '#e74c3c',
+    '#e67e22',
+    '#c0392b',
+    '#d35400',
+    '#95a5a6'
+];
+
+// return a random color from the array of colors
+function getRandomColor() {
+    console.log(Math.floor(Math.random() * randomColors.length));
+    return randomColors[Math.floor(Math.random() * randomColors.length)];
+}
 
 // update span with the size of the new canvas
 function updateSpan() {
     sizeSpan.textContent = `${rangeInput.value} * ${rangeInput.value}`;
-    return ;
+    return;
 }
 
 // delete every cell in the canvas
@@ -17,8 +44,9 @@ function deleteCanvas() {
 
 }
 
-function makeGrid(size=32) {
-    const width = canvas.offsetWidth; 
+// make the grid
+function makeGrid(size = 32) {
+    const width = canvas.offsetWidth;
 
     const itemsNum = size * size;
     const itemWidth = width / size;
@@ -33,6 +61,21 @@ function makeGrid(size=32) {
         item.classList.add("grid_item");
 
         canvas.append(item);
+
+        item.addEventListener("mouseover", (e) => {
+            // if left mouse btn is clicked
+            if (e.buttons == 1) {
+
+                // switch modes
+                if (colorBtn.classList.contains("active")) {
+                    item.style.backgroundColor = colorPicker.value;
+                } else {
+                    console.log(getRandomColor());
+                    item.style.backgroundColor = getRandomColor();
+                }
+
+            }
+        });
     }
 }
 
