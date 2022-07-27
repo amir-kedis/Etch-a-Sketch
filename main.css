@@ -37,6 +37,7 @@ input {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    min-height: 70vh;
 }
 
 .menu {
@@ -117,12 +118,10 @@ input[type="range"]::-webkit-slider-thumb {
     height: 600px;
     background-color: #fff;
     box-shadow: -6px 7px 8px 0px rgb(0 0 0 / 25%);
+    overflow: hidden;
 }
 
 footer {
-    position: absolute;
-    bottom: 1px;
-    left: 0;
     display: flex;
     width: 100%;
     padding: 2rem;
@@ -163,8 +162,8 @@ footer a {
         order: 2;
     }
     .canvas {
-        width: 70vw;
-        height: 70vw;
+        width: 300px;
+        height: 300px;
     }
     .header {
         font-size: 62px;

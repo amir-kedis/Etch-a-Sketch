@@ -54,7 +54,7 @@ function deleteCanvas() {
 }
 
 // make the grid
-function makeGrid(size = 32) {
+function makeGrid(size = 16) {
     const width = canvas.offsetWidth;
 
     const itemsNum = size * size;
@@ -83,6 +83,15 @@ function makeGrid(size = 32) {
                 }
 
             }
+        });
+        item.addEventListener("click", (e) => {
+
+            if (colorBtn.classList.contains("active")) {
+                item.style.backgroundColor = colorPicker.value;
+            } else {
+                item.style.backgroundColor = getRandomColor();
+            }
+
         });
     }
 }
