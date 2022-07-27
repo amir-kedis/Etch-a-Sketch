@@ -136,6 +136,16 @@ footer a {
     color: #305ed6;
 }
 
+.canvas {
+    display: flex;
+    flex-wrap: wrap;
+    flex: 0;
+}
+
+.grid_item {
+    border: 1px solid gray;
+}
+
 @media screen and (max-width: 768px) {
     body {
         font-size: 14px;
