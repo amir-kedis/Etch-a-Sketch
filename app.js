@@ -1,6 +1,9 @@
 const rangeInput = document.querySelector("#rangeInput");
 const sizeSpan = document.querySelector("#sizeSpan");
 const canvas = document.querySelector("#canvas");
+const colorBtn = document.querySelector("#colorBtn");
+const rainbowBtn = document.querySelector("#rainbowBtn");
+const clearBtn = document.querySelector("#clearBtn");
 
 // update span with the size of the new canvas
 function updateSpan() {
@@ -38,6 +41,18 @@ rangeInput.addEventListener("input", () => {
     updateSpan();
     deleteCanvas();
     makeGrid(rangeInput.value);
+});
+
+// color mode btn
+colorBtn.addEventListener("click", () => {
+    colorBtn.classList.add("active");
+    rainbowBtn.classList.remove("active");
+});
+
+// rainbow mode btn
+rainbowBtn.addEventListener("click", () => {
+    rainbowBtn.classList.add("active");
+    colorBtn.classList.remove("active");
 });
 
 makeGrid();
